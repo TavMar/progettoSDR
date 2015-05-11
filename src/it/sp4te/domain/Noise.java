@@ -6,7 +6,7 @@ public class Noise {
 	private int length;
 	private double[] parteReale;
 	private double[]parteImmaginaria;
-	
+	private double pot_rumore;
 	
 	public Noise(double snr, int length) {
 	Random campione = null;

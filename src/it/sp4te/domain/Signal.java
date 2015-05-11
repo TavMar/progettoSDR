@@ -10,6 +10,28 @@ import java.util.Arrays;
 
 public class Signal {
 
+	public int length;
+	public double[] reale;
+	public double[] immaginaria;
+
+	public Signal(int length) {
+		this.length = length;
+		this.reale = new double[length];
+		this.immaginaria = new double[length];
+		for (int i = 0; i < this.length; i++) {
+			double v = Math.random();
+			if (v < 0.5)
+				this.reale[i] = 1/Math.sqrt(2);
+			else
+				this.reale[i] = -1/Math.sqrt(2);
+			double p = Math.random();
+			if (p < 0.5)
+				this.immaginaria[i] = 1/Math.sqrt(2);
+			else
+				this.immaginaria[i] = -1/Math.sqrt(2);
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "Signal [length=" + length + ", reale=" + Arrays.toString(reale) + ", immaginaria="
@@ -40,26 +62,5 @@ public class Signal {
 		this.immaginaria = immaginaria;
 	}
 
-	public int length;
-	public double[] reale;
-	public double[] immaginaria;
-
-	public Signal(int length) {
-		this.length = length;
-		this.reale = new double[length];
-		this.immaginaria = new double[length];
-		for (int i = 0; i < this.length; i++) {
-			double v = Math.random();
-			if (v < 0.5)
-				this.reale[i] = 1/Math.sqrt(2);
-			else
-				this.reale[i] = -1/Math.sqrt(2);
-			double p = Math.random();
-			if (p < 0.5)
-				this.immaginaria[i] = 1/Math.sqrt(2);
-			else
-				this.immaginaria[i] = -1/Math.sqrt(2);
-		}
-	}
 
 }
