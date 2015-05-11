@@ -6,7 +6,39 @@
 
 package it.sp4te.domain;
 
+import java.util.Arrays;
+
 public class Signal {
+
+	@Override
+	public String toString() {
+		return "Signal [length=" + length + ", reale=" + Arrays.toString(reale) + ", immaginaria="
+				+ Arrays.toString(immaginaria) + "]";
+	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+	public double[] getReale() {
+		return reale;
+	}
+
+	public void setReale(double[] reale) {
+		this.reale = reale;
+	}
+
+	public double[] getImmaginaria() {
+		return immaginaria;
+	}
+
+	public void setImmaginaria(double[] immaginaria) {
+		this.immaginaria = immaginaria;
+	}
 
 	public int length;
 	public double[] reale;
