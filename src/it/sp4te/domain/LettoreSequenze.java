@@ -9,30 +9,28 @@ import java.util.Scanner;
 
 public class LettoreSequenze {
 
-	public Signal segnale;
+	public Signal segnale = new Signal(new Complex[1000000]);
 
 	public void leggiFile(File file) throws FileNotFoundException, IOException {
 		Scanner scanner = new Scanner(file);
 		int i = 0;
 		while (scanner.hasNextLine()) {
 			String string = scanner.nextLine();
-			String[] parts = string.split("-");
-			segnale.values[i].pRe = Double.parseDouble(parts[0]);
-			segnale.values[i].pImm = Double.parseDouble(parts[1]); 
+			String[] parts = string.split("\\t");
+			segnale.values[i] = new Complex(Double.parseDouble(parts[0]),Double.parseDouble(parts[1]));
 			i++;
 		}
-		for (int j=0; j < segnale.getLength(); j++){
+		for (int j=0; j < segnale.getLength() && segnale.values[j] != null; j++){
 			System.out.println(segnale.values[j].pRe);
 			System.out.println(segnale.values[j].pImm);
 		}
 	}
 	
-	public static void main (String[] args){
+	public static void main (String[] args) throws FileNotFoundException, IOException{
 		
-		Complex[] valori = null;
-		Signal prova = new Signal(valori);
-		LettoreSequenze l;
-		l.leggiFile("/home/marco/Scrivania/ciao.txt");
+		File file = new File("/home/marco/Scrivania/ciao");
+		LettoreSequenze l = new LettoreSequenze();
+		l.leggiFile(file);
 	}
 
 
