@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.Arrays;
 
 
-public class ipotesiH1 {
+public class IpotesiH1 {
 
 	public static void main (String[] args) throws Exception{
 		int numeroSuccessi = 0;
@@ -12,14 +12,12 @@ public class ipotesiH1 {
 		File file = new File("/home/marco/Scrivania/output_1.dat");
 		LettoreSequenze l = new LettoreSequenze();
 		Signal s = l.leggiFile(file);
-		ipotesiH0 ciao = new ipotesiH0();
+		IpotesiH0 ciao = new IpotesiH0();
 		double soglia = ciao.calcolaSoglie(s);
 		Signal blocco;
-		double[] energie = new double[1000];
-		for(int i=0; i<1000; i++){
-			blocco = new Signal(Arrays.copyOfRange(s.values, i*1000, (i*1000)+999));
-			energie[i] = blocco.getEnergia();
-			if(energie[i] < soglia)
+		for(int i=0; i<1000000; i=i+1000){
+			blocco = new Signal(Arrays.copyOfRange(s.values, i, i+999));
+			if (blocco.getEnergia() < soglia)
 				numeroSuccessi ++;
 			}
 		pDetection = numeroSuccessi/1000D;

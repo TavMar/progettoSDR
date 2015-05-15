@@ -2,7 +2,7 @@ package it.sp4te.domain;
 
 import java.io.File;
 
-public class ipotesiH0 {
+public class IpotesiH0 {
 
 	public double calcolaSoglie(Signal s) throws Exception{
 		double snr = 10*Math.log10(1/(s.getEnergia()-1.0));
@@ -25,7 +25,7 @@ public class ipotesiH0 {
 		File file = new File("/home/marco/Scrivania/output_1.dat");
 		LettoreSequenze l = new LettoreSequenze();
 		Signal s = l.leggiFile(file);
-		ipotesiH0 ciao = new ipotesiH0();
+		IpotesiH0 ciao = new IpotesiH0();
 		double soglia = ciao.calcolaSoglie(s);
 		System.out.print("soglia " + soglia);
 	}
