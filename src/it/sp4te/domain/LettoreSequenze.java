@@ -9,7 +9,7 @@ public class LettoreSequenze {
 
 	public Signal segnale = new Signal(new Complex[1000000]);
 
-	public void leggiFile(File file) throws FileNotFoundException, IOException {
+	public Signal leggiFile(File file) throws FileNotFoundException, IOException {
 		Scanner scanner = new Scanner(file);
 		int i = 0;
 		while (scanner.hasNextLine()) {
@@ -18,19 +18,20 @@ public class LettoreSequenze {
 			segnale.values[i] = new Complex(Double.parseDouble(parts[0]),Double.parseDouble(parts[1]));
 			i++;
 		}
-		for (int j=0; j < segnale.getLength() && segnale.values[j] != null; j++){
-			System.out.println(segnale.values[j].pRe);
-			System.out.println(segnale.values[j].pImm);
-		}
+//		for (int j=0; j < segnale.getLength() && segnale.values[j] != null; j++){
+//			System.out.println(segnale.values[j].pRe);
+//			System.out.println(segnale.values[j].pImm);
+//		}
 		scanner.close();
+		return segnale;
 	}
 	
-	public static void main (String[] args) throws FileNotFoundException, IOException{
-		
-		File file = new File("/home/marco/Scrivania/ciao");
-		LettoreSequenze l = new LettoreSequenze();
-		l.leggiFile(file);
-	}
+//	public static void main (String[] args) throws FileNotFoundException, IOException{
+//		
+//		File file = new File("/home/marco/Scrivania/ciao");
+//		LettoreSequenze l = new LettoreSequenze();
+//		l.leggiFile(file);
+//	}
 
 
 

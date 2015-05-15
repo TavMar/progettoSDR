@@ -32,7 +32,7 @@ public class Signal {
 			for(int i=0; i<this.getLength(); i++){
 				e = e+ Math.pow((this.values[i]).abs(), 2);
 			}
-		return e/this.getLength();
+		return e/(double)this.getLength();
 	}
 	
 }

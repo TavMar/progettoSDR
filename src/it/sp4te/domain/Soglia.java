@@ -18,7 +18,7 @@ public class Soglia {
 		for(int i=0; i<energie.length; i++){
 			valoreMedio = valoreMedio + energie[i];
 		}
-		valoreMedio = valoreMedio/energie.length;
+		valoreMedio =  valoreMedio/(double)energie.length;
 		return valoreMedio;
 	}
 
@@ -29,7 +29,7 @@ public class Soglia {
 		for (int i=0; i<l; i++){
 			varianza = varianza+Math.pow((energie[i]-m), 2);
 		}
-		varianza = varianza/l;
+		varianza = varianza/(double)l;
 		return varianza;
 	}
 
@@ -172,6 +172,6 @@ public class Soglia {
 	}
 	
 	public double calcolaSoglia(double[] z) throws Exception{
-		return getValoreMedio(z)+(Math.sqrt(2+getVarianza(z)) * InvErf(1- 2 * (this.pfa)));
+		return getValoreMedio(z)+(Math.sqrt(2.0*getVarianza(z)) * InvErf(1.0- (2.0 * (this.pfa))));
 	}
 }

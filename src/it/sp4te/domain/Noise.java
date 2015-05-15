@@ -3,20 +3,20 @@ import java.util.Random;
 
 public class Noise {
 	private int length;
-	private Signal n;
+	private Signal n = new Signal(new Complex[1000000]);
 	private double pot_rumore;
 
 	public Noise(double snr, int length) {
-		Random campione = null;
+		Random c1 = null;
+		Random c2 = null;
 		double snr_linearizzato = Math.pow(10, (snr/10));
 		this.pot_rumore = (1/snr_linearizzato);
 		this.length = length;
 		this.n=new Signal(new Complex[length]);
 		for (int i = 0; i < this.length; i++) {
-			campione = new Random();
-			n.values[i].pRe = campione.nextGaussian() * Math.sqrt(pot_rumore/2);
-			campione = new Random();
-			n.values[i].pImm=campione.nextGaussian() * Math.sqrt(pot_rumore/2);
+			c1 = new Random();
+			c2 = new Random();
+			n.values[i] = new Complex( c1.nextGaussian() * Math.sqrt(pot_rumore/2),c2.nextGaussian() * Math.sqrt(pot_rumore/2));
 		}
 	}
 	
