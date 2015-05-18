@@ -1,6 +1,5 @@
 package it.sp4te.domain;
 
-import java.io.File;
 
 public class IpotesiH0 {
 
@@ -15,18 +14,9 @@ public class IpotesiH0 {
 		for(int i=0; i<prove; i++){
 			rumore= new Noise(snr,q);
 			z[i]=rumore.getSegnale().getEnergia();
-//			System.out.println(z[i]);
 		}
 		soglia = new Soglia(1.0/(double)prove);
 		return soglia.calcolaSoglia(z);
 	}
 
-	public static void main (String[] args) throws Exception{
-		File file = new File("/home/marco/Scrivania/output_1.dat");
-		LettoreSequenze l = new LettoreSequenze();
-		Signal s = l.leggiFile(file);
-		IpotesiH0 ciao = new IpotesiH0();
-		double soglia = ciao.calcolaSoglie(s);
-		System.out.print("soglia " + soglia);
-	}
 }
